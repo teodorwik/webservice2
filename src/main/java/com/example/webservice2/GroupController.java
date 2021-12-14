@@ -25,8 +25,8 @@ public class GroupController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Groups> updateGroup(@PathVariable(value = "id")String id) {
-        return null;
+    public ResponseEntity<Groups> updateGroup(@PathVariable(value = "id")String id, @Valid @RequestBody Groups groups, @RequestHeader(value = "header", required = false)String header) throws Exception{
+        return groupService.updateGroup(id, groups);
     }
 
     @DeleteMapping("/delete/{id}")
